@@ -1,0 +1,67 @@
+<%layout('/layouts/boilerplate')%></layout>
+<body>
+    <div class="row"><!--this div is created to make form little small and applying row and columns operations for it-->
+        <div class="col col-8 offset-2 mt-3"><!--making form little small but occupying only 8 columns out of 12 and also giving offset of 2 to bring it in center-->
+    
+    <h3>ADD A NEW LISTING</h3>
+    <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data" ><!--we are using novalidate attribute to remove default validation setting-->
+        <!--what we are doing is in name = we are creating an object as listing and passing a key(listing), makes process easier to access through key of object we are ableto access all the object it in creat path -->
+       <div class="mb-3"><!--weare giving same class to all the label and input tag-->
+        <label for="title" class="form-label">TITLE</label>
+        <input 
+        type="text" 
+        name="listing[title]" 
+        placeholder="enter listing name" 
+        class="form-control"
+        required><!--this is required attribute, to use use bootstrap styling for this required add novalidate attribute in the form-->
+        <div class="valid-feedback">ok</div>
+        <div class="invalid-feedback">enter some title</div>
+    </div>
+        
+       <div  class="mb-3">
+        <label for="description" class="form-label">DESCRIPTION</label>
+        <textarea name="listing[description]" placeholder="enter description" class="form-control" required></textarea>
+        <div class="valid-feedback">ok</div>
+        <div class="invalid-feedback">enter a discription</div>
+      </div>
+      
+       <div  class="mb-3">
+        <label for="image" class="form-label" >UPLOAD LISTING IMAGE</label>
+        <input type="file" name="listing[image]" class="form-control" > 
+        <div class="valid-feedback">ok</div>
+        <div class="invalid-feedback">enter a link</div>
+        required
+       </div>
+       
+
+       <div class="row"><!--this div is created so that we can place 2 div together in one line-->
+        <div  class="mb-3 col-md-4"><!--now we have two col price and country where each taking some columns respectively-->
+            <label for="price" class="form-label">PRICE</label>
+            <input name="listing[price]" placeholder="enter price" class="form-control" required><!--we removed type=number because we have already defined it in schema and we also want to test error middleware-->
+            <div class="valid-feedback">ok</div>
+            <div class="invalid-feedback">enter a price</div>
+           </div>
+           
+           <div  class="mb-3 col-md-8">
+            <label for="country" class="form-label">COUNTRY</label>
+            <input type="text" name="listing[country]" placeholder="enter country" class="form-control" required>
+            <div class="valid-feedback">ok</div>
+            <div class="invalid-feedback">enter a counrty</div>
+           </div>
+       </div>
+       
+       
+       <div  class="mb-3">
+        <label for="location" class="form-label">LOCATION</label>
+        <input type="text" name="listing[location]" placeholder="enter location" class="form-control" required>
+        <div class="valid-feedback">ok</div>
+        <div class="invalid-feedback">enter a location</div>
+       </div>
+       
+       <button class="btn btn-dark" >ADD</button>
+       <br>
+       <br>
+    </form>
+  </div>
+ </div>
+</body>

@@ -1,0 +1,51 @@
+<!--Here we will have the navbar cose for all the pages of website -->
+<!--we have taken this code from the bootstrap webiste-->
+
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top"><!--we gave multiple classes to this like meddium screem tabs , border in the bottom , and light color,sticky t-top will keep our nav bar fixat the top-->
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/listings"><i class="websiteLogo fa-solid fa-person-walking-luggage"></i></a> <!--it is the logo-->
+      <button
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNavAltMarkup" 
+       >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings">Explore</a>
+          
+        </div>
+
+        <!--this div is for search in the nav bar div-->
+        <div class="navbar-nav ms-auto">
+              <form class="d-flex" role="search">
+                <input
+                 class="form-control me-2 search-inp" 
+                 type="search" 
+                 placeholder="Search Destinations" 
+                />
+                <button
+                 class="btn search-btn" 
+                 type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+              </form>
+        </div>
+        
+
+        <!--this div was created in phase 2-->
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/new">New Listings</a>  <!--keeping it out because we want to show in all the cases -->
+          <%if(!currUser){%> <!--we cannot use req.user in ejs so we saved it in currUser as a local middleware-->
+            <a class="nav-link " href="/signup"><b>Sign up</b></a><!--here both are the case of in the currUser is undefined i.e. is not logged in-->
+            <a class="nav-link" href="/login"><b>Login</b></a>
+          <%}%>
+          <%if(currUser){%>
+          <a class="nav-link" href="/logout"><b>Logout</b></a>
+          <%}%>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!--WE can include this peice of code using %<-include("../includes/navbar.ejs")%> in the boilerplate-->
